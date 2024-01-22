@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fashion WIX</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('background1.jpg');
+            background-size: cover;
+            background-position: center;
+           
+         
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            text-align: center;
+           
+            padding: 20px;
+        
+          
+            border-bottom: 2px solid #FFFFFF;
+        }
+
+        h1 {
+            font-size: 42px;
+            margin-bottom: 10px;
+            color:#ffffff;
+ text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        p {
+            font-size: 18px;
+          
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color:#303030 ;
+            margin: 0;
+            border-top: 2px solid #ddd;
+            border-bottom: 2px solid #ddd;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background-color: #555;
+        }
+
+        #content {
+            padding: 50px;
+        }
+
+        #home, #products, #about, #contact, #login-form {
+            display: none;
+        }
+
+        #home, #products, #about, #contact, #login-form {
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            margin-top: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        #home.show, #products.show, #about.show, #contact.show, #login-form.show {
+            display: block;
+        }
+
+        .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px;
+            text-align: center;
+            width: 30%;
+        }
+
+        .product img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+
+.product.selected-product {
+    border: 2px solid #ff6600;
+}
+
+
+
+
+
+
+        footer {
+            text-align: center;
+            
+            color: #333;
+            padding: 20px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            border-top: 2px solid #ddd;
+        }
+
+        #login-form table {
+            width: 50%;
+            margin: auto;
+            text-align: left;
+        }
+
+        #login-form label {
+            display: block;
+            margin-top: 10px;
+        }
+
+        #login-form input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        #login-form button {
+            padding: 10px 15px;
+           
+           
+        }
+
+       
+    </style>
+
+
+<!-- Në fund të seksionit head -->
+<script type="text/javascript" src="js/script.js"></script>
+
+
+
+
+</head>
+<body>
+
+    <header>
+        <h1>Fashion WIX</h1>
+        
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('home')">Home</a></li>
+            <li><a href="#" onclick="showSection('products')">Products</a></li>
+            <li><a href="#" onclick="showSection('about')">About Us</a></li>
+            <li><a href="#" onclick="showSection('contact')">Contact Us</a></li>
+            <li><a href="#" onclick="showSection('login-form')">Login</a></li>
+        </ul>
+    </nav>
+
+    <section id="content">
+
+      <section id="home" class="show">
+          <h2>Welcome to Fashion WIX</h2>
+
+            <p>You have discovered the right place to stay informed with the latest trends in the world of fashion. Here you can find the latest products and much more.</p>
+        </section>
+        <section id="products">
+            <h3>Products</h3>
+<style>
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+  #cart {
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 10px;
+            background-color: #333;
+            color: #fff;
+            cursor: pointer;
+        }
+
+.product {
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    width: 35%; 
+    display: inline-block; 
+}
+
+
+
+
+.product.selected-product {
+    border: 2px solid #ff6600;
+}
+
+/* Për zgjedhjen e madhësisë */
+.product select {
+    margin-top: 5px;
+}
+
+
+</style>
+
+
+          <div class="products-container">
+
+
+               
+ <div class="product" onclick="selectProduct(this, 'Product', 70)">
+
+        <h4>Girls</h4>
+
+<div class="gallery" id="girls-gallery">
+
+
+                    
+<div class="product girls-product" onclick="selectProduct(this, 'Product 1', 70, 'girls')">
+    <img src="img1.jpg" alt="Dress" style="max-width: 100%; height: auto" onclick="addToCart('img1.jpg', 'girls')">
+    <p>Name: Product 1</p> 
+    <p>Price: $70</p>
+    <label for="sizeDress1">Size:</label>
+    <select id="sizeDress1" name="sizeDress1">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+
+
+
+<div class="product girls-product" onclick="selectProduct(this, 'Product2', 65, 'girls')">
+    <img src="img2.jpg" alt="Dress" style="max-width: 100%; height: auto" onclick="addToCart('img2.jpg', 'girls')">
+    <p>Name: Product 2</p> <!-- Add this line for the product name -->
+    <p>Price: $65</p>
+    <label for="sizeDress2">Size:</label>
+    <select id="sizeDress2" name="sizeDress2">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+<div class="product girls-product" onclick="selectProduct(this, 'Product3', 45, 'girls')">
+    <img src="img3.jpg" alt="Dress" style="max-width: 100%; height: auto" onclick="addToCart('img3.jpg')">
+    <p>Name: Product 3</p>
+    <p>Price: $45</p>
+    <label for="sizeDress3">Size:</label>
+    <select id="sizeDress3" name="sizeDress3">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+
+
+
+  <div class="product girls-product" onclick="selectProduct(this, 'Product4', 35, 'girls')">                                 
+ <img src="img4.jpg" alt="Dress"style="max-width: 100%; height: auto "onclick="addToCart('img4.jpg')">
+<p>Name: Product 4</p>
+<p> Price: $35</p>
+ <label for="sizeDress1">Size:</label>
+    <select id="sizeDress4" name="sizeDress4">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+
+ 
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+
+
+<div class="product girls-product" onclick="selectProduct(this, 'Product5', 75, 'girls')">                
+ <img src="img5.jpg" alt="Dress"style="max-width: 100%; height: auto" onclick="addToCart('img5.jpg')">
+<p>Name: Product 5</p>
+<p> Price: $75</p>
+  
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+       <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+     </div>
+        </div>
+
+    <div class="product">
+
+            <h4>Boys</h4>
+            <div class="gallery" id="boys-gallery">    
+<div class="product boys-product" onclick="selectProduct(this, 'Product6', 70, 'boys')">
+    <img src="img6.jpg" alt="Dress" style="max-width: 100%; height: auto" onclick="addToCart('img6.jpg', 'boys')">
+    <p>Name: Product 6</p> <!-- Add this line for the product name -->
+    <p>Price: $70</p>
+    <label for="sizeDress6">Size:</label>
+    <select id="sizeDress6" name="sizeDress6">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+<div class="product boys-product" onclick="selectProduct(this, 'Product7', 65, 'boys')">
+
+<img src="img7.jpg" alt="Dress"style="max-width: 100%; height: auto "onclick="addToCart('img7.jpg')">
+<p>Name: Product 7</p>
+<p> Price: $65</p>
+ <label for="sizeDress7">Size:</label>
+    <select id="sizeDress7" name="sizeDress7">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+<div class="product boys-product" onclick="selectProduct(this, 'Product8', 45, 'boys')">
+     <img src="img8.jpg" alt="Dress"style="max-width: 100%; height: auto" onclick="addToCart('img8.jpg')">
+<p>Name: Product 8</p>
+<p> Price: $45</p>
+
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+
+   <div class="product boys-product" onclick="selectProduct(this, 'Product9', 35, 'boys')">                                
+ <img src="img9.jpg" alt="Dress"style="max-width: 100%; height: auto "onclick="addToCart('img9.jpg')">
+<p>Name: Product 9</p>
+<p> Price: $35</p>
+ <label for="sizeDress9">Size:</label>
+    <select id="sizeDress9" name="sizeDress9">
+        <option value="S">S</option>
+        <option value="M">M</option>
+        <option value="L">L</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+</div>
+
+
+   <div class="product boys-product" onclick="selectProduct(this, 'Product10', 70, 'boys')">               
+ <img src="img10.jpg" alt="Dress"style="max-width: 100%; height: auto "onclick="addToCart('img10.jpg')">
+<p>Name: Product 10</p>
+<p> Price: $70</p>
+ <label for="sizeDress10">Size:</label>
+    <select id="sizeDress10" name="sizeDress10">
+        <option value="38">38</option>
+        <option value="39">39</option>
+        <option value="40">40</option>
+    </select>
+ <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity">
+       
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+       
+    </select>
+
+</div>
+
+
+
+            </div>
+        </div>
+      
+        </section>
+
+
+
+
+
+        <section id="about">
+            <h3>About Us</h3>
+            <p>Learn about the history of Fashion WIX and our commitment to bringing you the latest in fashion trends.</p>
+        </section>
+
+        <section id="contact">
+            <h3>Contact Us</h3>
+            <p>For any inquiries, please contact us:</p>
+            <p>Phone: +1-123-456-7890</p>
+            <p>Email: info@fashionwix.com</p>
+        </section>
+
+        <section id="login-form">
+            <h3>Login</h3>
+            <table>
+                <tr>
+                    <td><label for="username">Username:</label></td>
+                    <td><input type="text" id="username" name="username" required></td>
+                </tr>
+                <tr>
+                    <td><label for="password">Password:</label></td>
+                    <td><input type="password" id="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button type="button" onclick="performLogin()">Login</button>
+                    </td>
+                </tr>
+            </table>
+
+  <section id="customer-details" class="show">
+        <h3>Customer Details</h3>
+        <label for="customerAddress">Address:</label>
+        <input type="text" id="customerAddress" name="customerAddress" required>
+
+ <label for="customerEmail">Email:</label>
+    <input type="email" id="customerEmail" name="customerEmail" required>
+
+        <label for="customerPhone">Phone Number:</label>
+        <input type="text" id="customerPhone" name="customerPhone" required>
+
+        <button type="button" onclick="buyProducts()">Buy</button>
+    </section>
+
+
+
+        </section>
+    </section>
+  
+
+<div id="cart" onclick="viewCart()">🛒</div>
+
+
+
+    <footer>
+        <p>&copy; 2023 Fashion WIX. All rights reserved.</p>
+    </footer>
+    <script type="text/javascript">
+        function showSection(sectionId) {
+            var sections = document.querySelectorAll('#home, #products, #about, #contact, #login-form');
+            sections.forEach(function(section) {
+                section.classList.remove('show');
+            });
+            document.getElementById(sectionId).classList.add('show');
+        }
+
+
+
+       
+    </script>
+
+
+
+
+<script type="text/javascript">
+ 
+
+
+
+var shoppingCart = [];
+
+function selectProduct(productElement, productName, price, quantity, category) {
+    productElement.classList.toggle('selected-product');
+    var sizeSelect = productElement.querySelector('select');
+    var selectedSize = sizeSelect.options[sizeSelect.selectedIndex].value;
+
+    var quantitySelect = productElement.querySelector('select[name^="quantity"]');
+    var selectedQuantity = quantitySelect.options[quantitySelect.selectedIndex].value;
+
+    var product = {
+        name: productName,
+        size: selectedSize,
+        quantity: selectedQuantity,
+        price: price,
+        category: category
+    };
+
+    // Check if the product is already in the cart
+    var index = shoppingCart.findIndex(item => item.name === productName && item.size === selectedSize && item.category === category);
+    if (index !== -1) {
+        // If it's already in the cart, remove it
+        shoppingCart.splice(index, 1);
+    } else {
+        // Otherwise, add it to the cart
+        shoppingCart.push(product);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    function addToCart(imageSrc, category) {
+        var selectedProduct = document.querySelector('.product.' + category + '-product.selected-product');
+        if (selectedProduct) {
+            var productName = selectedProduct.querySelector('h4').innerText;
+            var price = parseFloat(selectedProduct.querySelector('p').innerText.split('$')[1]);
+
+            selectProduct(selectedProduct, productName, price, category);
+        }
+    }
+
+    function viewCart() {
+        alert(JSON.stringify(shoppingCart, null, 2));
+    }
+
+
+function buyProducts() {
+        var customerAddress = document.getElementById('customerAddress').value;
+        var customerEmail = document.getElementById('customerEmail').value;
+
+        if (customerAddress.trim() === "" || customerEmail.trim() === "") {
+            alert("Please fill in the address and email fields.");
+            return;
+        }
+
+        var orderDetails = {
+            customerAddress: customerAddress,
+            customerEmail: customerEmail,
+            products: shoppingCart
+        };
+
+        // Dërgoni detajet e porosisë (orderDetails) në server ose bëni diçka tjetër me to
+        alert(JSON.stringify(orderDetails, null, 2));
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Merrni vlerat nga forma
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+   
+    $servername = "localhost";
+    $db_username = "username";  
+    $db_password = "password";  
+    $dbname = "emri_i_bazes";   
+
+    $conn = new mysqli($servername, $db_username, $db_password, $dbname);
+
+  
+
+}
+?>
+
+
+
+
+
+</body>
+</html>     
